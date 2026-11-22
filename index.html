@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assistente de Associação Inteligente</title>
     <style>
+    .highlight {
+  background-color: #2196f3 !important;
+  color: white !important;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: bold;
+}
         :root {
             --bg: #0a0a0c;
             --card: #16161a;
@@ -157,7 +164,7 @@ const dataEngine = [
     {
         categoria: "Espaços Culturais",
         itens: ["Museu", "Galeria", "Pinacoteca", "Exposição", "Acervo", "Obra de Arte", "Relíquia", "Fóssil"],
-        relacionados: ["história", "quadro", "estátua", "silêncio", "ingresso", "guia", "turismo", "antigo", "conhecimento", "cultura", "curador"]
+        relacionados: ["história", "quadro", "estátua", "silêncio", "ingresso", "turismo", "antigo", "conhecimento", "cultura", "curador"]
     },
     {
         categoria: "Geografia Brasileira",
@@ -192,7 +199,7 @@ const dataEngine = [
     {
         categoria: "Culinária Oriental",
         itens: ["Sushi", "Sashimi", "Lamen", "Yakissoba", "Temaki", "Poke", "Guioza", "Hot Roll"],
-        relacionados: ["Arroz", "Peixe cru", "Alga", "Shoyu", "Hashi", "Caldo", "Macarrão", "Japão"]
+        relacionados: ["Peixe cru", "Alga", "Shoyu", "Hashi", "Caldo", "Macarrão", "Japão"]
     },
     {
         categoria: "Bebidas Não Alcoólicas",
@@ -444,14 +451,17 @@ const dataEngine = [
         categoria: "Direito e Legislação",
         itens: ["Leis", "Constituição", "Código Civil", "Decreto", "Estatuto", "Norma"],
         relacionados: ["justiça", "advogado", "juiz", "tribunal", "ordem", "regra", "direito", "crime", "julgamento"]    
-    },   
-     {
-        categoria: "Materiais e Marcenaria",
-        itens: ["Madeira", "MDF", "Compensado", "Viga", "Tábua", "Ripa"],
-        relacionados: ["árvore", "móveis", "marceneiro", "serra", "prego", "madeireira", "construção", "natural"],
-        opostos: ["metal", "aço", "vidro", "plástico", "concreto", "fogo"]
-    },
+    },     
     {
+    termo: "Árvore",
+    categoria: "Natureza e Botânica",
+    itens: ["Árvore", "Arbusto", "Muda", "Planta de grande porte"],
+    relacionados: ["Raiz", "Tronco", "Galhos", "Folhas", "Frutos", "Sombra", "Natal", "Família", "Genealógica", "Papel", "Oxigênio", "Madeira", "Ninho", "Pássaro", "Escalar", "Pomar"],
+    universo: ["Biologia", "Ecologia", "Jardinagem", "Cultura", "Família"],
+    concorrentes: ["Planta", "Flor", "Floresta", "Poste", "Bonsai", "Palmeira", "Pinheiro", "Cerca viva"],
+    opostos: ["Semente", "Deserto", "Prédio", "Asfalto", "Chão limpo"]
+       },
+        {
         categoria: "Mamíferos Carnívoros",
         itens: ["Hiena", "Leão", "Tigre", "Lobo", "Chacal", "Coiote"],
         relacionados: ["savana", "risada", "predador", "carniça", "bando", "caça", "mandíbula", "natureza"],
@@ -1166,16 +1176,16 @@ const dataEngine = [
         universo: ["Entretenimento", "Tecnologia", "Internet", "Lazer"],
         concorrentes: ["YouTube", "Disney+", "Prime Video", "HBO", "Globoplay", "Star+", "Twitch", "Cinema", "TV"],
         opostos: ["Livro", "Teatro", "Rádio", "Trabalho", "Rua"]
-    },
-    {
-        termo: "Pizza",
-        categoria: "Culinária Italiana",
-        itens: ["Pizza", "Calzone", "Focaccia", "Massa", "Disco"],
-        relacionados: ["Mussarela", "Calabresa", "Forno a lenha", "Manjericão", "Tomate", "Azeitona", "Ketchup", "Borda recheada", "Pizzaria", "Delivery", "Fatia"],
-        universo: ["Gastronomia", "Noite", "Sábado", "Itália", "Jantar"],
-        concorrentes: ["Hambúrguer", "Esfiha", "Pastel", "Lasanha", "Sushi", "Hot Dog"],
-        opostos: ["Salada", "Saudável", "Sopa", "Fruta"]
-    },
+    },   
+   {
+    termo: "Massa",
+    categoria: "Culinária e Física",
+    itens: ["Massa", "Macarrão", "Pasta", "Esparguete", "Lasanha", "Nhoque", "Penne"],
+    relacionados: ["Trigo", "Farinha", "Molho tomate", "Queijo ralado", "Itália", "Cozinhar", "Al dente", "Carbonara", "Bolognesa", "Peso", "Matéria", "Volume", "Pedreiro", "Massa corrida"],
+    universo: ["Gastronomia", "Física", "Construção", "Ciência", "Cotidiano"],
+    concorrentes: ["Arroz", "Pão", "Pizza", "Noodles", "Cuscuz", "Batata", "Densidade"],
+    opostos: ["Líquido", "Vazio", "Leveza", "Vácuo", "Dieta low-carb"]
+   },
     {
         termo: "Caminhão",
         categoria: "Veículos de Carga",
@@ -1526,31 +1536,323 @@ const dataEngine = [
         universo: ["Informática", "Tecnologia", "Trabalho", "Jogos"],
         concorrentes: ["Mouse", "Monitor", "Laptop", "Touchscreen", "Máquina de escrever", "Caneta"],
         opostos: ["Manual", "Oral", "Mudo", "Voz"]  
-    }
+    },  
+      {
+    termo: "Enfermagem",
+    categoria: "Profissões da Saúde",
+    itens: ["Enfermeiro", "Enfermeira", "Técnico de Enfermagem", "Auxiliar de Enfermagem", "Enf"],
+    relacionados: ["Cuidado", "Hospital", "Injeção", "Vacina", "Soro", "Curativo", "Termômetro", "Pressão arterial", "Plantão", "Jaleco", "Estetoscópio", "Triagem", "Prontuário", "Medicamento"],
+    universo: ["Saúde", "Medicina", "Trabalho", "Emergência", "Cuidado Humano"],
+    concorrentes: ["Médico", "Fisioterapeuta", "Socorrista", "Paramédico", "Cuidador", "Dentista"],
+    opostos: ["Paciente", "Doente", "Ferido", "Saudável", "Leigo"]  
+      },     
+      {
+    termo: "Liberdade",
+    categoria: "Conceitos e Direitos",
+    itens: ["Liberdade", "Livre", "Autonomia", "Independência", "Emancipação", "Livre-arbítrio"],
+    relacionados: ["Voo", "Pássaro", "Céu", "Democracia", "Escolha", "Direito", "Sem grades", "Horizonte", "Alforria", "Vento", "Férias", "Paz", "Expressão"],
+    universo: ["Política", "Filosofia", "Direito", "Sentimentos", "História"],
+    concorrentes: ["Justiça", "Igualdade", "Privacidade", "Segurança", "Paz", "Esperança"],
+    opostos: ["Prisão", "Escravidão", "Cárcere", "Opressão", "Cadeia", "Grilhões", "Ditadura", "Controlo"]    
+   },    
+   {
+    termo: "Titanic",
+    categoria: "História e Cinema",
+    itens: ["Titanic", "Navio Transatlântico", "RMS Titanic", "Inafundável"],
+    relacionados: ["Iceberg", "Naufrágio", "Oceano Atlântico", "Bote salva-vidas", "Jack e Rose", "Orquestra", "Primeira classe", "Caldeira", "Âncora", "Luxo", "Tragédia", "Exploração submarina", "James Cameron"],
+    universo: ["História", "Cinema", "Navegação", "Mistério", "Cultura Pop"],
+    concorrentes: ["Navio Pirata", "Submarino", "Arca de Noé", "Transatlântico", "Iate", "Barco a vela"],
+    opostos: ["Porto seguro", "Terra firme", "Segurança", "Flutuar", "Montanha", "Deserto"] 
+   }, 
+   {
+    termo: "Poesia",
+    categoria: "Literatura e Artes",
+    itens: ["Poema", "Verso", "Estrofe", "Rima", "Métrica", "Soneto", "Trova"],
+    relacionados: ["Escrita", "Sentimento", "Metáfora", "Lirismo", "Poeta", "Inspiração", "Livro", "Antologia", "Recitar", "Ritmo", "Papel", "Caneta", "Expressão"],
+    universo: ["Arte", "Cultura", "Educação", "Filosofia", "Romance"],
+    concorrentes: ["Prosa", "Conto", "Crónica", "Novela", "Letra de música", "Teatro", "Ensaio"],
+    opostos: ["Factos", "Manual", "Dicionário", "Texto técnico", "Lógica", "Cálculo"] 
+   },  
+     {
+    termo: "Vaper",
+    categoria: "Hábitos e Dispositivos",
+    itens: ["Vaper", "Vape", "Cigarro eletrônico", "Pod", "Mod", "Caneta de vapor"],
+    relacionados: ["Vapor", "Nicotina", "Essência", "Juice", "Bobina", "Resistência", "Bateria", "Fumaça branca", "Carregador", "Sabor", "Nuvem", "Recarregável", "Hábito"],
+    universo: ["Cotidiano", "Tecnologia", "Saúde", "Cultura Urbana", "Estilo de Vida"],
+    concorrentes: ["Cigarro", "Charuto", "Cachimbo", "Narguilé", "Inalador", "Incenso"],
+    opostos: ["Ar puro", "Oxigénio", "Saúde", "Fumo zero", "Respirar livremente"]  
+     },
+      {
+    termo: "Parmesão",
+    categoria: "Alimentos e Laticínios",
+    itens: ["Parmesão", "Parmigiano-Reggiano", "Queijo curado", "Queijo duro"],
+    relacionados: ["Leite", "Ralado", "Massa", "Itália", "Culinária", "Forte", "Salgado", "Grana Padano", "Casca dura", "Risoto", "Maturação", "Lactose", "Iguaria"],
+    universo: ["Gastronomia", "Cozinha", "Cotidiano", "Supermercado", "Cultura Italiana"],
+    concorrentes: ["Muçarela", "Prato", "Gorgonzola", "Provolone", "Cheddar", "Ricota", "Queijo da Ilha"],
+    opostos: ["Doce", "Sobremesa", "Leve", "Mole", "Iogurte"] 
+      },      
+    {
+    termo: "Metallica",
+    categoria: "Música e Entretenimento",
+    itens: ["Metallica", "Heavy Metal", "Thrash Metal", "Os Quatro Cavaleiros"],
+    relacionados: ["Guitarra", "Bateria", "James Hetfield", "Enter Sandman", "Preto", "Master of Puppets", "Solo de guitarra", "Cabelo comprido", "Show", "Rock n Roll", "Eletricidade", "Snake Pit", "Grammy"],
+    universo: ["Cultura Pop", "Artes", "Indústria Musical", "Estilo de Vida"],
+    concorrentes: ["Iron Maiden", "Megadeth", "AC/DC", "Guns N' Roses", "Nirvana", "Sepultura", "Kiss", "Slayer"],
+    opostos: ["Música Clássica", "Silêncio", "Pop leve", "Pagode", "Acústico"] 
+    },   
+    {
+    termo: "Grécia",
+    categoria: "Países e História",
+    itens: ["Grécia", "Berço da Civilização", "Helênico", "República Helênica"],
+    relacionados: ["Olimpíadas", "Deuses", "Mitologia", "Atenas", "Santorini", "Filosofia", "Democracia", "Partenon", "Mármore", "Iogurte", "Azeite", "Ilhas", "Azul e Branco", "Coluna", "Ruínas", "Sócrates", "Esparta"],
+    universo: ["Geografia", "História", "Turismo", "Cultura Clássica", "Gastronomia"],
+    concorrentes: ["Itália", "Egito", "Roma", "Turquia", "Chipre", "Museu", "Paraíso", "Olimpo"],
+    opostos: ["Modernidade extrema", "Futurismo", "Barbárie", "Ditadura", "Inverno rigoroso"] 
+    },
+     {
+    termo: "Dourado",
+    categoria: "Cores e Natureza",
+    itens: ["Dourado", "Cor de ouro", "Aureo", "Peixe Dourado"],
+    relacionados: ["Ouro", "Brilho", "Sol", "Rio", "Peixe", "Joia", "Anel", "Medalha", "Troféu", "Ostentação", "Egito", "Riqueza", "Coroa", "Pintura", "Amanhecer", "Cabelo loiro"],
+    universo: ["Artes", "Biologia", "Economia", "Cotidiano", "Desporto"],
+    concorrentes: ["Prateado", "Amarelo", "Bronze", "Cobre", "Brilhante", "Salmão", "Piraputanga", "Sol"],
+    opostos: ["Fosco", "Preto", "Prata", "Pobreza", "Escuridão"] 
+     }, 
+       {
+    termo: "Cupim",
+    categoria: "Insetos e Gastronomia",
+    itens: ["Cupim", "Térmite", "Siriri", "Aleluia"],
+    relacionados: ["Madeira", "Móvel", "Churrasco", "Carne", "Gordura", "Boi", "Cupinzeiro", "Terra", "Praga", "Inseticida descupinização", "Recheado", "Lento", "Colónia"],
+    universo: ["Biologia", "Culinária", "Construção", "Cotidiano", "Entomologia"],
+    concorrentes: ["Formiga", "Abelha", "Picanha", "Alcatra", "Traça", "Broca", "Carrapato", "Gafanhoto"],
+    opostos: ["Ferro", "Metal", "Vegetariano", "Proteção", "Indestrutível"]  
+    },
+   {
+    termo: "Sonic",
+    categoria: "Cultura Pop e Jogos",
+    itens: ["Sonic", "O Ouriço", "Sonic the Hedgehog", "Borrão Azul"],
+    relacionados: ["Velocidade", "Anéis de ouro", "Azul", "Sapato vermelho", "Moedas", "Espinhos", "Ouriço", "Sega", "Dr. Eggman", "Tails", "Knuckles", "Esmeraldas do Caos", "Super Sonic", "Vídeo Game", "Looping"],
+    universo: ["Jogos", "Cinema", "Infância", "Tecnologia", "Animação"],
+    concorrentes: ["Mario", "Flash", "Pikachu", "Crash Bandicoot", "Mega Man", "Papa-Léguas", "Fórmula 1", "Avião a jato"],
+    opostos: ["Tartaruga", "Lento", "Preguiça", "Nintendo", "Parado"]    
+   }, 
+      {
+    termo: "NASA",
+    categoria: "Ciência e Exploração",
+    itens: ["NASA", "Agência Espacial", "Houston", "Cabo Canaveral"],
+    relacionados: ["Astronauta", "Foguete", "Lua", "Marte", "Estação Espacial", "Satélite", "Telescópio", "James Webb", "Hubble", "Universo", "Gravidade", "Lançamento", "Contagem decrescente", "Logo azul", "T-shirt branca", "Computador"],
+    universo: ["Astronomia", "Tecnologia", "EUA", "Governo", "Futuro"],
+    concorrentes: ["SpaceX", "ESA", "Roscosmos", "Alienígena", "Céu", "Planeta", "Exército", "Observatório"],
+    opostos: ["Terra firme", "Oceano profundo", "Simplicidade", "Antiguidade", "Religião"] 
+    },
+   {
+    termo: "Cílios",
+    categoria: "Corpo Humano e Estética",
+    itens: ["Cílios", "Pestanas", "Cílios Postiços", "Alongamento de Cílios"],
+    relacionados: ["Olho", "Pálpebra", "Rímel", "Máscara de cílios", "Piscar", "Proteção", "Olhar", "Curvex", "Fio a fio", "Maquilhagem", "Salão de beleza", "Lágrima", "Poeira", "Vassourinha"],
+    universo: ["Biologia", "Estética", "Cotidiano", "Saúde", "Moda"],
+    concorrentes: ["Sobrancelha", "Barba", "Cabelo", "Olho", "Lente de contato", "Óculos", "Pele", "Pincel"],
+    opostos: ["Careca", "Liso", "Visão", "Cegueira", "Interior do corpo"]       
+   },
+    {
+    termo: "Salsicha",
+    categoria: "Alimentos e Caninos",
+    itens: ["Salsicha", "Viena", "Frankfurt", "Salsichão"],
+    relacionados: ["Cachorro-quente", "Hot Dog", "Dachshund", "Cão de caça", "Enlatado", "Embutido", "Mostarda", "Ketchup", "Molho de tomate", "Pão de leite", "Churrasco", "Aperitivo", "Rosada", "Fervida", "Moída"],
+    universo: ["Gastronomia", "Zoologia", "Cotidiano", "Fast Food", "Pets"],
+    concorrentes: ["Linguiça", "Presunto", "Salame", "Mortadela", "Poodle", "Vira-lata", "Nuggets", "Carne moída"],
+    opostos: ["Vegetariano", "Natural", "Grande porte", "Carne de primeira", "Osso"]
+    },   
+    {
+    termo: "Recinto",
+    categoria: "Espaços e Lugares",
+    itens: ["Recinto", "Área cercada", "Espaço delimitado", "Local fechado"],
+    relacionados: ["Muro", "Grade", "Cerca", "Segurança", "Zoológico", "Feira Popular", "Show", "Entrada Proibida", "Pavilhão", "Arena", "Cativeiro", "Público", "Bilheteira", "Lotação", "Espetáculo", "Festas"],
+    universo: ["Arquitetura", "Entretenimento", "Segurança", "Eventos", "Biologia"],
+    concorrentes: ["Estádio", "Parque", "Prisão", "Palco", "Quadra", "Sala", "Pátio", "Curral"],
+    opostos: ["Campo aberto", "Rua", "Infinito", "Livre", "Exterior"]    
+    },   
+    {
+    termo: "Vaquejada",
+    categoria: "Cultura e Desporto",
+    itens: ["Vaquejada", "Derrubada de Boi", "Circuito de Vaquejada"],
+    relacionados: ["Boi", "Cavalo", "Vaqueiro", "Locutor", "Nordeste", "Pista", "Areia", "Protetor de Cauda", "Faixa", "Puxada", "Forró", "Piseiro", "Parque de Exposição", "Sertão", "Gibão", "Botas"],
+    universo: ["Tradição", "Brasil", "Agronegócio", "Lazer", "Música"],
+    concorrentes: ["Rodeio", "Cavalgada", "Montaria", "Churrasco", "Fazenda", "Zebu", "Rancho", "Exposição"],
+    opostos: ["Cidade grande", "Urbano", "Marítimo", "Asfalto", "Silêncio"]    
+    },   
+   {
+    termo: "Xícara",
+    categoria: "Utensílios e Cozinha",
+    itens: ["Xícara", "Chávena", "Xícara de chá", "Xícara de café"],
+    relacionados: ["Asa", "Pires", "Porcelana", "Cerâmica", "Café", "Chá", "Leite", "Quente", "Culinária", "Medida", "Receita", "Pequeno-almoço", "Chá das cinco", "Fumaça", "Borda", "Louça"],
+    universo: ["Gastronomia", "Cotidiano", "Etiqueta", "Design", "Lar"],
+    concorrentes: ["Caneca", "Copo", "Tigela", "Bule", "Garrafa Térmica", "Colher", "Taça", "Prato"],
+    opostos: ["Frio", "Líquido solto", "Garrafa", "Plástico", "Grande"]  
+   },   
+    {
+    termo: "E-mail",
+    categoria: "Tecnologia e Comunicação",
+    itens: ["E-mail", "Correio eletrónico", "Mensagem digital", "Webmail"],
+    relacionados: ["Arroba", "@", "Gmail", "Outlook", "Assunto", "Anexo", "Spam", "Caixa de entrada", "Rascunho", "Enviar", "Receber", "Endereço", "Login", "Senha", "Newsletter", "Corporativo"],
+    universo: ["Internet", "Escritório", "Informática", "Cotidiano", "Marketing"],
+    concorrentes: ["WhatsApp", "Carta", "SMS", "Telegram", "Slack", "Notificação", "Correio", "Site"],
+    opostos: ["Telefone", "Papel", "Conversa presencial", "Offline", "Sinal de fumaça"]   
+    },
+     {
+    termo: "Suéter",
+    categoria: "Vestuário e Clima",
+    itens: ["Suéter", "Pulôver", "Camisola de lã", "Agasalho"],
+    relacionados: ["Lã", "Frio", "Inverno", "Tricô", "Manga comprida", "Gola", "Vovó", "Agulha", "Ponto", "Quente", "Malha", "Escola", "Uniforme", "Caxemira", "Sobreposição", "Conforto"],
+    universo: ["Moda", "Cotidiano", "Inverno", "Família", "Têxtil"],
+    concorrentes: ["Casaco", "Moletom", "Cardigã", "Jaqueta", "Cachecol", "Colete", "Blusa", "Poncho"],
+    opostos: ["Camiseta", "Regata", "Calor", "Biquíni", "Verão"] 
+     },   
+      {
+    termo: "Periquito",
+    categoria: "Animais e Natureza",
+    itens: ["Periquito", "Tuim", "Periquito-australiano", "Ave de estimação"],
+    relacionados: ["Gaiola", "Pena", "Bico", "Semente", "Alpiste", "Poleiro", "Verde", "Colorido", "Canto", "Asa", "Ovo", "Ninho", "Voador", "Pássaro", "Mansinho", "Casal"],
+    universo: ["Biologia", "Pets", "Zoologia", "Cotidiano", "Cores"],
+    concorrentes: ["Papagaio", "Canário", "Calopsita", "Arara", "Pombinha", "Bem-te-vi", "Agapornis", "Beija-flor"],
+    opostos: ["Gato", "Cachorro", "Silêncio", "Livre", "Mamífero"]   
+      }, 
+        {
+    termo: "Fofoca",
+    categoria: "Comportamento e Comunicação",
+    itens: ["Fofoca", "Boato", "Mexerico", "Língua de trapo"],
+    relacionados: ["Segredo", "Vizinha", "Janela", "Ouvido", "Cochicho", "Celebridades", "Fofoqueiro", "Rádio corredor", "Verdade", "Mentira", "Escândalo", "Grupo de WhatsApp", "Maledicência", "Intriga", "Informação", "Diz-que-me-disse"],
+    universo: ["Cotidiano", "Social", "Jornalismo", "Psicologia", "Internet"],
+    concorrentes: ["Notícia", "Fato", "Entrevista", "Confissão", "Segredo", "Novela", "Reality Show", "Desabafo"],
+    opostos: ["Silêncio", "Privacidade", "Discrição", "Respeito", "Mudez"]  
+        },  
+          {
+    termo: "Chuvoso",
+    categoria: "Clima e Ambiente",
+    itens: ["Chuvoso", "Temporal", "Dia de chuva", "Invernoso"],
+    relacionados: ["Nuvem", "Cinzento", "Guarda-chuva", "Capa de chuva", "Galocha", "Trovão", "Raio", "Relâmpago", "Lama", "Poça", "Inverno", "Previsão do tempo", "Melancolia", "Café", "Livro", "Janela"],
+    universo: ["Meteorologia", "Natureza", "Cotidiano", "Geografia", "Sentimentos"],
+    concorrentes: ["Nublado", "Ensolarado", "Ventoso", "Nevado", "Úmido", "Frio", "Tempestade", "Neblina"],
+    opostos: ["Seco", "Estiagem", "Sol", "Deserto", "Limpo"]  
+      },   
+     {
+    termo: "Comédia",
+    categoria: "Entretenimento e Arte",
+    itens: ["Comédia", "Stand-up", "Humor", "Sitcom"],
+    relacionados: ["Risada", "Piada", "Palco", "Microfone", "Plateia", "Engraçado", "Satíra", "Gargalhada", "Dante", "Teatro", "Cinema", "Meme", "Bobo da corte", "Palhaço", "Ironia", "Sarcasmo"],
+    universo: ["Cultura Pop", "Literatura", "Teatro", "Televisão", "Cotidiano"],
+    concorrentes: ["Tragédia", "Drama", "Terror", "Suspense", "Documentário", "Aventura", "Musical", "Romance"],
+    opostos: ["Sério", "Tristeza", "Choro", "Tédio", "Luto"]     
+     },
+       {
+    termo: "Google",
+    categoria: "Tecnologia e Internet",
+    itens: ["Google", "Alphabet", "Motor de busca", "Buscador"],
+    relacionados: ["Pesquisa", "Internet", "Algoritmo", "Chrome", "Android", "Gmail", "Maps", "Drive", "Doodle", "Anúncios", "Vale do Silício", "Big Tech", "Resposta", "Curiosidade", "Página", "Link"],
+    universo: ["Tecnologia", "Cotidiano", "Inovação", "Publicidade", "Educação"],
+    concorrentes: ["Bing", "Yahoo", "DuckDuckGo", "ChatGPT", "Safari", "Microsoft", "Apple", "Facebook"],
+    opostos: ["Desconhecimento", "Analógico", "Papel", "Enciclopédia", "Offline"] 
+       },     
+      {
+    termo: "Cogumelo",
+    categoria: "Natureza e Alimentos",
+    itens: ["Cogumelo", "Fungo", "Champignon", "Shiitake", "Shimeji"],
+    relacionados: ["Floresta", "Umidade", "Sombra", "Terra", "Venenoso", "Alucinógeno", "Mágico", "Super Mario", "Nintendo", "Pizza", "Risoto", "Culinária", "Esporo", "Chapéu", "Haste", "Micélio"],
+    universo: ["Biologia", "Gastronomia", "Cultura Pop", "Botânica", "Cotidiano"],
+    concorrentes: ["Líquen", "Mofo", "Planta", "Flor", "Raiz", "Trufa", "Legume", "Bactéria"],
+    opostos: ["Seco", "Deserto", "Sintético", "Animal", "Sol forte"]     
+     },     
+     {
+    termo: "Bônus",
+    categoria: "Economia e Jogos",
+    itens: ["Bônus", "Gratificação", "Prêmio", "Adicional"],
+    relacionados: ["Extra", "Recompensa", "Salário", "Natal", "Performance", "Meta", "Vendas", "Desconto", "Pontuação", "Fase", "Vida", "Combo", "Cassino", "Rodada", "Vantagem", "Presente"],
+    universo: ["Corporativo", "Games", "Finanças", "Cotidiano", "Marketing"],
+    concorrentes: ["Comissão", "Salário", "Brinde", "Sorteio", "Cachet", "Dividendo", "Aumento", "Voucher"],
+    opostos: ["Multa", "Desconto", "Prejuízo", "Penalização", "Padrão"]     
+     },  
+      {
+    termo: "Guia",
+    categoria: "Direção e Suporte",
+    itens: ["Guia", "Roteiro", "Manual", "Tutorial"],
+    relacionados: ["Turismo", "Excursão", "Viagem", "Museu", "Cego", "Cão-guia", "Espiritualidade", "Mestre", "Luz", "Caminho", "Calçada", "Meio-fio", "Manual de instruções", "Tutorial", "Documento", "Corrente"],
+    universo: ["Turismo", "Religião", "Cotidiano", "Construção Civil", "Educação"],
+    concorrentes: ["Mapa", "GPS", "Bússola", "Líder", "Instrutor", "Professor", "Placa", "Sinalização"],
+    opostos: ["Perdido", "Desorientado", "Caos", "Labirinto", "Sozinho"] 
+      },
+        {
+    termo: "Litoral",
+    categoria: "Geografia e Natureza",
+    itens: ["Litoral", "Costa", "Orla", "Beira-mar"],
+    relacionados: ["Praia", "Mar", "Oceano", "Areia", "Ondas", "Porto", "Farol", "Falésia", "Maresia", "Salitre", "Turismo", "Verão", "Maré", "Manguezal", "Restinga", "Continente", "Ilha"],
+    universo: ["Geografia", "Ecologia", "Turismo", "Cotidiano", "Clima"],
+    concorrentes: ["Interior", "Sertão", "Serra", "Planalto", "Arquipélago", "Baía", "Enseada", "Margem"],
+    opostos: ["Centro", "Interiorano", "Sertão", "Montanha", "Cerrado"]     
+        },
+         {
+    termo: "Falecer",
+    categoria: "Ciclo da Vida",
+    itens: ["Falecer", "Partir", "Ir embora", "Perecer", "Expirar"],
+    relacionados: ["Morte", "Fim", "Luto", "Saudade", "Enterro", "Velório", "Cemitério", "Herança", "Testamento", "Eternidade", "Descanso", "Alma", "Hospital", "Idade", "Adeus", "Lápide"],
+    universo: ["Biologia", "Religião", "Direito", "Cotidiano", "Sentimental"],
+    concorrentes: ["Morrer", "Bater as botas", "Abotoar o paletó", "Sumir", "Dormir", "Desmaiar", "Nascer"],
+    opostos: ["Nascer", "Viver", "Ressuscitar", "Existir", "Sobreviver"]   
+         },
+         {
+    termo: "Datena",
+    categoria: "Personalidades e Mídia",
+    itens: ["Datena", "José Luiz Datena", "Brasil Urgente"],
+    relacionados: ["Televisão", "Band", "Jornalismo Policial", "Crime", "Helicóptero", "Comandante Hamilton", "Cadeira", "Debate", "Política", "Candidato", "Grito", "Põe na Tela", "Ibagens", "Sensacionalismo", "São Paulo", "Segurança Pública"],    universo: ["Entretenimento", "Política Brasileira", "Comunicação", "Cotidiano", "Mídia"],
+    concorrentes: ["Marcelo Rezende", "Luiz Bacci", "Ratinho", "Sikêra Jr", "William Bonner", "Prefeito", "Governador", "Âncora"],
+    opostos: ["Silêncio", "Paz", "Calma", "Entretenimento Infantil", "Anonimato"]  
+         },     
+        {
+    termo: "Carioca",
+    categoria: "Identidade e Regionalismo",
+    itens: ["Carioca", "Rio de Janeiro", "Errejota", "Natural do Rio"],
+    relacionados: ["Cristo Redentor", "Maracanã", "Praia", "Copacabana", "Ipanema", "Samba", "Carnaval", "Sotaque", "Chiado", "Biscoito Globo", "Mate", "Calçadão", "Morro", "Favelas", "Pão de Açúcar", "Cidade Maravilhosa", "Chinelo", "Gíria"],
+    universo: ["Geografia", "Cultura Brasileira", "Turismo", "Cotidiano", "Linguística"],
+    concorrentes: ["Paulista", "Fluminense", "Mineiro", "Baiano", "Gaúcho", "Brasil", "Turista", "Niteroiense"],
+    opostos: ["Interiorano", "Frio", "Paulistano", "Formal", "Montanha"]     
+        },   
+         {
+    termo: "Elfo",
+    categoria: "Fantasia e Mitologia",
+    itens: ["Elfo", "Eldar", "Criatura Mística", "Povo das Estrelas"],
+    relacionados: ["Orelhas Pontudas", "Arco e Flecha", "Imortalidade", "Floresta", "Natureza", "Magia", "Legolas", "Senhor dos Anéis", "Pai Natal", "Oficina", "Presentes", "Brinquedos", "Nórdico", "Agilidade", "Elegância", "Língua Élfica"],
+    universo: ["Literatura Fantástica", "Mitologia", "Cinema", "Natal", "RPG"],
+    concorrentes: ["Anão", "Orc", "Humano", "Fada", "Gnomo", "Hobbit", "Ent", "Mago"],
+    opostos: ["Mortal", "Bárbaro", "Industrial", "Feio", "Curto Prazo"]   
+         }
 ];
 
 const searchInput = document.getElementById('searchInput');
 const resultsArea = document.getElementById('results');
 
 function performSearch() {
-    const query = searchInput.value.toLowerCase().trim();
-    
+    searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.trim().toLowerCase();
     if (query.length < 2) {
-        resultsArea.innerHTML = '<div class="empty-msg">Comece a digitar para ver as conexões...</div>';
-        return;    
+        resultsDiv.innerHTML = '<div class="empty-msg">Aguardando busca...</div>';
+        return;
     }
 
-    const filtered = dataEngine.filter(group => {
-    const searchInArray = (arr) => arr ? arr.some(i => i.toLowerCase().includes(query)) : false;
+    // BUSCA AMPLA: Filtra todos os grupos que possuem a palavra em qualquer campo
+    const results = dataEngine.filter(group => {
+        const inCat = group.categoria && group.categoria.toLowerCase().includes(query);
+        const inTermo = group.termo && group.termo.toLowerCase().includes(query);
+        const inItens = group.itens && group.itens.some(i => i.toLowerCase().includes(query));
+        const inRel = group.relacionados && group.relacionados.some(r => r.toLowerCase().includes(query));
+        return inCat || inTermo || inItens || inRel;
+    });
 
-    return group.categoria.toLowerCase().includes(query) || 
-           (group.termo && group.termo.toLowerCase().includes(query)) ||
-           searchInArray(group.itens) || 
-           searchInArray(group.relacionados) || 
-           searchInArray(group.concorrentes) || 
-           searchInArray(group.universo);
+    if (results.length > 0) {
+        resultsDiv.innerHTML = '';
+        results.forEach(match => renderResult(match, query));
+    } else {
+        resultsDiv.innerHTML = '<div class="empty-msg">Nenhuma conexão encontrada.</div>';
+    }
 });
-
     renderResults(filtered, query);
 }
 
@@ -1580,33 +1882,57 @@ function renderResults(results, query) {
             html += `<span class="word ${isMatch ? 'highlight' : ''}">${item}</span>`;
         });
 
-        // Bloco de Relacionados
+        // Função de escape para evitar erros com caracteres especiais na regex
+        const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const highlightRegex = new RegExp(`\\b(${escapedQuery})\\b`, "gi");
+
+        // Função interna para aplicar destaque apenas na palavra exata
+        const applyHighlight = (text) => {
+            if (!query) return text;
+            // Escapa caracteres especiais da busca e define bordas de palavra (\b)
+            const safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`\\b(${safeQuery})\\b`, "gi");
+            return text.replace(regex, `<span class="highlight">$1</span>`);
+        };
+
+// 1. Função de realce (Highlight) segura e precisa
+        const highlightMatch = (text) => {
+            if (!query) return text;
+            // Escapa caracteres especiais e usa \b para palavra exata
+            const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`\\b(${escaped})\\b`, "gi");
+            return text.replace(regex, `<span class="highlight">$1</span>`);
+        };
+
+        // 2. Bloco de Relacionados
         html += `</div><hr><span class="label" style="opacity:0.6; margin-bottom:10px; display:block;">Conceitos Relacionados</span><div class="word-cloud">`;
         group.relacionados.forEach(rel => {
-            const isMatch = rel.toLowerCase().includes(query);
-            html += `<span class="word ${isMatch ? 'highlight' : ''}" style="font-size:0.85rem; opacity:0.8;">${rel}</span>`;
+            html += `<span class="word" style="font-size:0.85rem; opacity:0.8;">${highlightMatch(rel)}</span>`;
         });
+        html += `</div>`; // Fecha word-cloud dos relacionados
 
-        // NOVO: Bloco de Opostos (Só aparece se existir no objeto)
+        // 3. Bloco de Opostos (Só aparece se existir no objeto)
         if (group.opostos && group.opostos.length > 0) {
-            html += `</div><hr><span class="label" style="color: #ef4444; opacity:0.8; margin-bottom:10px; display:block;">Opostos ou Contrastes</span><div class="word-cloud">`;
+            html += `<hr><span class="label" style="color: #ef4444; opacity:0.8; margin-bottom:10px; display:block;">Opostos ou Contrastes</span><div class="word-cloud">`;
             group.opostos.forEach(op => {
-                html += `<span class="word" style="font-size:0.85rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2);">${op}</span>`;
+                html += `<span class="word" style="font-size:0.85rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2);">${highlightMatch(op)}</span>`;
             });
+            html += `</div>`; // Fecha word-cloud dos opostos
         }
-// Bloco de Concorrentes (Novo padrão WePlay)
-if (group.concorrentes) {
-    html += `<hr><span class="label" style="color: #f59e0b; opacity:0.8; margin-bottom:10px; display:block;">Concorrentes e Alternativas</span><div class="word-cloud">`;
-    group.concorrentes.forEach(conc => {
-        html += `<span class="word" style="font-size:0.85rem; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2);">${conc}</span>`;
-    });
-    html += `</div>`;
-}
-        html += `</div>`;
+
+        // 4. Bloco de Concorrentes (Padrão WePlay)
+        if (group.concorrentes && group.concorrentes.length > 0) {
+            html += `<hr><span class="label" style="color: #f59e0b; opacity:0.8; margin-bottom:10px; display:block;">Concorrentes e Alternativas</span><div class="word-cloud">`;
+            group.concorrentes.forEach(conc => {
+                html += `<span class="word" style="font-size:0.85rem; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2);">${highlightMatch(conc)}</span>`;
+            });
+            html += `</div>`; // Fecha word-cloud dos concorrentes
+        }
+
+        html += `</div>`; // Fecha o category-box
         card.innerHTML = html;
         resultsArea.appendChild(card);
     });
-}
 
 searchInput.addEventListener('input', performSearch);
 </script>
